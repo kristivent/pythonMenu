@@ -29,10 +29,8 @@ def place_order(menu):
 
     # TODO: Create a continuous while loop so customers can order multiple items
     while True:
-
         # TODO: Ask the customer what they want to order
         print("\nWhat would you like to order?")
-
 
         # Create a variable for the menu item number
         i = 1
@@ -48,7 +46,6 @@ def place_order(menu):
             # TODO: Loop through the options for each food category
             # TODO: Extract the meal and the price for each option
             for meal, price in options.items():
-
                 # Print the menu item number, food category, meal, and price
                 # TODO: Only if you used different variable names
                 # TODO: Update the variable names in the following function
@@ -64,18 +61,15 @@ def place_order(menu):
         # TODO: Send the order list, menu selection, and menu items as arguments
         order = update_order(order, item_number, menu_items)
 
-
         # TODO: Ask the customer if they would like to order anything else
         order_again = input("Would you like to order anything else? (y/n): ")
         # TODO: Let the customer know if they should type 'n' or 'N' to quit
         if order_again.lower() == 'n':
             break
 
-
         # TODO: Write a conditional statement that checks the user's input
         # TODO: The conditional statement should check for 'n' or 'N'
         if order_again.lower() == 'n':
-
             # TODO: Write a print statement that thanks the customer for their order
             print("Thank you for your order!")
             break
@@ -86,15 +80,12 @@ def place_order(menu):
             # TODO: The total price for each item should multiply the price by quantity
     prices_list = [item["Price"] * item["Quantity"] for item in order]
 
-
             # TODO: Create an order_total from the prices list using sum()
             # TODO: Round the prices to 2 decimal places.
     order_total = round(sum(prices_list), 2)
 
-
             # TODO: Exit the ordering loop
             # TODO: Either use a break statement or set the condition to False
-
     # TODO: Return the order list and the order total
     return order, order_total
 
