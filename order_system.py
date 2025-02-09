@@ -46,9 +46,8 @@ def place_order(menu):
             print(f"\n{food_category}")
 
             # TODO: Loop through the options for each food category
-            for meal, price in options.items():
             # TODO: Extract the meal and the price for each option
-                print(f" {i}. {meal} - ${price:.2f}")
+            for meal, price in options.items():
 
                 # Print the menu item number, food category, meal, and price
                 # TODO: Only if you used different variable names
@@ -79,23 +78,22 @@ def place_order(menu):
 
             # TODO: Write a print statement that thanks the customer for their order
             print("Thank you for your order!")
+            break
 
 
             # TODO: Use list comprehension to create a list called prices_list,
             # TODO: which contains the total prices for each item in the order list:
             # TODO: The total price for each item should multiply the price by quantity
-            prices_list = [item["Price"] * item["Quantity"] for item in order]
+    prices_list = [item["Price"] * item["Quantity"] for item in order]
 
 
             # TODO: Create an order_total from the prices list using sum()
             # TODO: Round the prices to 2 decimal places.
-            order_total = round(sum(prices_list), 2)
+    order_total = round(sum(prices_list), 2)
 
 
             # TODO: Exit the ordering loop
             # TODO: Either use a break statement or set the condition to False
-            break
-
 
     # TODO: Return the order list and the order total
     return order, order_total
@@ -118,49 +116,45 @@ def update_order(order, menu_selection, menu_items):
     """
     # TODO: Check if the customer typed a number
     if not menu_selection.isdigit():
-        print("Invalid input.  Please endter a valid number.")
+        print("Invalid input.  Please enter a valid number.")
+        return order
 
         # TODO: Convert the menu selection to an integer
-        menu_selection = int(menu_selection)
+    menu_selection = int(menu_selection)
 
         # TODO: Check if the menu selection is in the menu items keys
-        if menu_selection in menu_items.keys():
+    if menu_selection in menu_items.keys():
             # TODO: Store the item name as a variable
-            item = menu_items[menu_selection]
-            item_name = item["Item name"]
+        item = menu_items[menu_selection]
+        item_name = item["Item name"]
+        item_price = item["Price"]
 
 
             # TODO: Ask the customer for the quantity of the menu item
             # TODO: Use the item name variable in the question
-            quantity = input(f"How many {item_name} would you like to order? ")
+        quantity = input(f"Enter the quantity of {item_name} you would like to order: ")
 
 
             # TODO: Check if the quantity is a number, default to 1 if not
-            if not quantity.isdigit():
-                print("Invalid quantity.  Defaulting to 1.")
-                quantity = 1
-            else:
-                quantity = int(quantity)
+        if not quantity.isdigit():
+            print("Invalid quantity.  Defaulting to 1.")
+            quantity = 1
+        else:
+            quantity = int(quantity)
 
             # TODO: Add a dictionary to the order list 
             # TODO: The dictionary should include the item name, price, and quantity
             # TODO: Use the following names for the dictionary keys:
             # TODO: "Item name", "Price", "Quantity"
-            order.append({"Item name": item_name, "Price": item["Price"], "Quantity": quantity})
-        else:
+        order.append({"Item name": item_name, "Price": item_price, "Quantity": quantity})
+    else:
         # TODO: When the user's input isn't valid, 
         # TODO: tell the customer that their input isn't valid
-            print(f"Invalid selection: {menu_selection}.  Please select a valid menu item.")
-
-
     # TODO: When the menu selection wasn't valid:
     # TODO: Print the menu selection and 
     # TODO: Tell the customer they didn't select a menu option
-    else:
-        print(f"Invalid selection: {menu_selection}.  Please select a valid menu item.")
-
-
     # TODO: Return the updated order
+        print(f"Invalid selection: {menu_selection}.  Please select a valid item.")
     return order
 
 
